@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ascended Financial Group — Elevating Wealth. Honoring Legacy.</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0D1F3C;--navy-mid:#152845;--gold:#C9A84C;--gold-dark:#9C7A2E;--gold-pale:#E8D5A3;--cream:#F8F6F1;--warm-gray:#E8E4DC;--text-mid:#4A4540;--text-light:#8A7F6E}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--navy);font-family:'Montserrat',sans-serif;font-weight:300;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.4rem 3rem;display:flex;align-items:center;justify-content:space-between;transition:background 0.4s,box-shadow 0.4s}
+nav.scrolled{background:rgba(13,31,60,0.97);box-shadow:0 2px 30px rgba(0,0,0,0.25)}
+.nav-logo{display:flex;align-items:center;gap:0.8rem;text-decoration:none}
+.nav-logo-text .l1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.1rem;color:var(--cream);letter-spacing:0.14em;line-height:1;display:block}
+.nav-logo-text .l2{font-family:'Montserrat',sans-serif;font-weight:200;font-size:0.36rem;letter-spacing:0.5em;color:var(--gold);text-transform:uppercase;margin-top:3px;display:block}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:0.6rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:rgba(248,246,241,0.7);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{font-size:0.58rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--navy)!important;background:var(--gold);padding:0.55rem 1.3rem;border-radius:2px;text-decoration:none;transition:background 0.2s}
+.nav-cta:hover{background:var(--gold-pale)}
+.hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 85% 30%,rgba(201,168,76,0.10) 0%,transparent 65%),radial-gradient(ellipse 50% 70% at 5% 80%,rgba(201,168,76,0.06) 0%,transparent 55%),linear-gradient(160deg,#0D1F3C 0%,#091628 100%)}
+.hero::after{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(-45deg,transparent,transparent 60px,rgba(201,168,76,0.016) 60px,rgba(201,168,76,0.016) 61px)}
+.hero-inner{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:9rem 3rem 5rem;display:grid;grid-template-columns:1.15fr 0.85fr;gap:4rem;align-items:center}
+.hero-eyebrow{font-size:0.6rem;font-weight:500;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;opacity:0;animation:fadeUp 0.8s ease forwards 0.3s}
+.hero-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.6rem,5.5vw,4.6rem);color:var(--cream);line-height:1.08;letter-spacing:0.03em;margin-bottom:1.8rem;opacity:0;animation:fadeUp 0.9s ease forwards 0.5s}
+.hero-title em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:0.78rem;font-weight:300;line-height:2.1;color:rgba(248,246,241,0.62);max-width:480px;margin-bottom:2.5rem;opacity:0;animation:fadeUp 0.9s ease forwards 0.7s}
+.hero-actions{display:flex;gap:1.2rem;flex-wrap:wrap;opacity:0;animation:fadeUp 0.9s ease forwards 0.9s}
+.btn-primary{display:inline-block;padding:0.9rem 2.2rem;background:var(--gold);color:var(--navy);font-size:0.6rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background 0.25s,transform 0.2s}
+.btn-primary:hover{background:var(--gold-pale);transform:translateY(-2px)}
+.btn-ghost{display:inline-block;padding:0.9rem 2.2rem;border:1px solid rgba(201,168,76,0.4);color:var(--gold);font-size:0.6rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:all 0.25s}
+.btn-ghost:hover{border-color:var(--gold);color:var(--cream);transform:translateY(-2px)}
+.hero-card{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.2);border-radius:6px;padding:2.5rem 2rem;text-align:center;opacity:0;animation:fadeUp 1s ease forwards 1s;backdrop-filter:blur(4px)}
+.hero-photo-wrap{width:130px;height:130px;border-radius:50%;margin:0 auto 1.5rem;border:2px solid var(--gold);padding:4px;overflow:hidden;background:var(--navy-mid)}
+.hero-photo-wrap img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:top center}
+.hero-card-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--cream);margin-bottom:0.3rem}
+.hero-card-title{font-size:0.52rem;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem}
+.hero-divider{width:40px;height:1px;background:var(--gold);margin:0 auto 1.4rem;opacity:0.45}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem}
+.stat{padding:0.9rem 0.5rem;border:1px solid rgba(201,168,76,0.15);border-radius:3px}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--gold);line-height:1;margin-bottom:0.25rem}
+.stat-label{font-size:0.48rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:rgba(248,246,241,0.45)}
+.scroll-hint{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:0.5rem;opacity:0;animation:fadeUp 1s ease forwards 1.5s}
+.scroll-hint span{font-size:0.48rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(201,168,76,0.45)}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollPulse 2s ease-in-out infinite}
+.hero-corner{position:absolute;width:50px;height:50px;border-color:rgba(201,168,76,0.22);border-style:solid;z-index:2}
+.hc-tl{top:5.5rem;left:2rem;border-width:1px 0 0 1px}
+.hc-br{bottom:2rem;right:2rem;border-width:0 1px 1px 0}
+.slogan-band{background:var(--gold);padding:1.5rem 3rem;text-align:center}
+.slogan-band p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.25rem;color:var(--navy);letter-spacing:0.06em}
+.section{padding:6rem 3rem;max-width:1100px;margin:0 auto}
+.section-eyebrow{font-size:0.58rem;font-weight:600;letter-spacing:0.45em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:0.75rem}
+.section-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,4vw,3rem);color:var(--navy);line-height:1.2;margin-bottom:2rem}
+.section-title em{font-style:italic;color:var(--gold-dark)}
+.gold-rule{width:55px;height:2px;background:var(--gold);margin-bottom:2.8rem}
+.about-wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:start}
+.about-photo-col{position:relative}
+.about-photo-frame{position:relative;padding:12px;background:var(--navy);border-radius:4px;box-shadow:0 20px 60px rgba(13,31,60,0.18)}
+.about-photo-frame::before{content:'';position:absolute;top:30px;left:-10px;width:4px;height:80px;background:var(--gold);border-radius:2px}
+.about-photo-frame img{width:100%;height:420px;object-fit:cover;object-position:top center;border-radius:2px;display:block}
+.mdrt-badge{position:absolute;bottom:-1.5rem;right:-1.5rem;background:white;border:1px solid var(--warm-gray);border-radius:4px;padding:0.85rem 1rem;box-shadow:0 8px 30px rgba(13,31,60,0.12);display:flex;align-items:center;gap:0.7rem}
+.mdrt-dot{width:38px;height:38px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.mdrt-text .t1{font-size:0.55rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy)}
+.mdrt-text .t2{font-size:0.5rem;color:var(--text-light);margin-top:2px;line-height:1.5}
+.about-body p{font-size:0.8rem;line-height:2.1;color:var(--text-mid);margin-bottom:1.3rem}
+.about-body p strong{color:var(--navy);font-weight:500}
+.about-highlights{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.highlight-item{padding:1rem;border-left:2px solid var(--gold);background:rgba(201,168,76,0.05)}
+.hi-num{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--gold-dark);line-height:1}
+.hi-label{font-size:0.58rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-light);margin-top:0.3rem}
+.services-bg{background:var(--navy);padding:6rem 0}
+.services-inner{max-width:1100px;margin:0 auto;padding:0 3rem}
+.services-bg .section-eyebrow{color:var(--gold)}
+.services-bg .section-title{color:var(--cream)}
+.services-bg .section-title em{color:var(--gold)}
+.services-bg .gold-rule{background:var(--gold)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.service-card{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.18);border-radius:4px;padding:2.5rem 1.8rem;transition:all 0.3s}
+.service-card:hover{background:rgba(201,168,76,0.07);border-color:rgba(201,168,76,0.38);transform:translateY(-4px)}
+.svc-icon{margin-bottom:1.4rem}
+.svc-icon svg{width:40px;height:40px}
+.svc-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;color:var(--cream);margin-bottom:0.75rem;line-height:1.2}
+.svc-desc{font-size:0.7rem;line-height:1.95;color:rgba(248,246,241,0.58);margin-bottom:1.3rem}
+.svc-list{list-style:none;font-size:0.66rem;color:rgba(201,168,76,0.8);line-height:2.1}
+.svc-list li::before{content:'— '}
+.clientele-wrap{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.client-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.client-card{border:1px solid var(--warm-gray);border-radius:4px;padding:1.4rem 1.1rem;background:white;text-align:center;transition:all 0.25s;box-shadow:0 2px 12px rgba(13,31,60,0.05)}
+.client-card:hover{border-color:var(--gold);transform:translateY(-3px);box-shadow:0 8px 28px rgba(13,31,60,0.1)}
+.cc-icon{margin:0 auto 0.7rem}
+.cc-icon svg{width:32px;height:32px}
+.cc-label{font-size:0.6rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);line-height:1.5}
+.client-note{margin-top:1.5rem;padding:1.2rem;background:rgba(201,168,76,0.07);border-left:3px solid var(--gold);border-radius:0 3px 3px 0;font-size:0.72rem;line-height:1.9;color:var(--text-mid)}
+.client-note strong{color:var(--navy);font-weight:500}
+.clientele-quote{background:var(--navy);border-radius:6px;padding:3rem 2.5rem;position:relative;overflow:hidden}
+.clientele-quote::before{content:'\201C';position:absolute;top:-1.5rem;left:1.5rem;font-family:'Cormorant Garamond',serif;font-size:9rem;color:rgba(201,168,76,0.1);line-height:1;pointer-events:none}
+.cq-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.25rem;font-weight:300;color:var(--cream);line-height:1.7;margin-bottom:1.5rem;position:relative}
+.cq-rule{width:35px;height:1px;background:var(--gold);margin-bottom:1rem;opacity:0.6}
+.cq-attr{font-size:0.56rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold)}
+.partners-bg{background:var(--warm-gray);padding:6rem 0;border-top:1px solid #D8D4CC;border-bottom:1px solid #D8D4CC}
+.partners-inner{max-width:1100px;margin:0 auto;padding:0 3rem}
+.partners-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.partner-card{border:1px solid var(--warm-gray);border-radius:6px;padding:2.5rem 2.2rem;background:white;box-shadow:0 4px 24px rgba(13,31,60,0.06);transition:all 0.3s}
+.partner-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(13,31,60,0.1);border-color:rgba(201,168,76,0.3)}
+.partner-tag{font-size:0.54rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold-dark);margin-bottom:0.6rem}
+.partner-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--navy);margin-bottom:0.5rem}
+.partner-tagline{font-size:0.7rem;font-style:italic;color:var(--text-light);margin-bottom:1.2rem;line-height:1.6}
+.partner-desc{font-size:0.73rem;line-height:1.95;color:var(--text-mid);margin-bottom:1.5rem}
+.partner-link{font-size:0.56rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-dark);text-decoration:none;border-bottom:1px solid rgba(156,122,46,0.3);padding-bottom:2px;transition:all 0.2s}
+.partner-link:hover{color:var(--navy);border-color:var(--navy)}
+.process-bg{background:var(--navy);padding:6rem 0}
+.process-inner{max-width:1100px;margin:0 auto;padding:0 3rem}
+.process-bg .section-eyebrow{color:var(--gold)}
+.process-bg .section-title{color:var(--cream)}
+.process-bg .gold-rule{background:var(--gold)}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;position:relative}
+.process-steps::before{content:'';position:absolute;top:25px;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.3),transparent)}
+.step{text-align:center;padding:0 0.5rem}
+.step-num{width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,0.05);border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:300;color:var(--gold);position:relative;z-index:1}
+.step-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;color:var(--cream);margin-bottom:0.5rem}
+.step-desc{font-size:0.67rem;line-height:1.9;color:rgba(248,246,241,0.55)}
+.contact-bg{background:var(--cream);padding:7rem 0;border-top:1px solid var(--warm-gray)}
+.contact-inner{max-width:1100px;margin:0 auto;padding:0 3rem}
+.contact-wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:5rem;align-items:start}
+.contact-info p{font-size:0.78rem;line-height:2.1;color:var(--text-mid);margin-bottom:2rem}
+.contact-details{list-style:none;margin-bottom:2rem}
+.contact-details li{display:flex;gap:1rem;margin-bottom:1.1rem;font-size:0.74rem;color:var(--text-mid);line-height:1.6;align-items:flex-start}
+.cd-label{font-size:0.52rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-dark);min-width:65px;margin-top:2px}
+.contact-details a{color:var(--text-mid);text-decoration:none;transition:color 0.2s}
+.contact-details a:hover{color:var(--navy)}
+.contact-form{display:flex;flex-direction:column;gap:1.1rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.form-group{display:flex;flex-direction:column;gap:0.4rem}
+.form-group label{font-size:0.52rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-dark)}
+.form-group input,.form-group select,.form-group textarea{background:white;border:1px solid var(--warm-gray);border-radius:2px;padding:0.8rem 1rem;font-family:'Montserrat',sans-serif;font-size:0.73rem;font-weight:300;color:var(--navy);outline:none;transition:border-color 0.2s;width:100%}
+.form-group input::placeholder,.form-group textarea::placeholder{color:var(--text-light)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold)}
+.form-group textarea{resize:vertical;min-height:110px}
+.form-submit{width:100%;padding:1rem;background:var(--navy);border:none;border-radius:2px;font-family:'Montserrat',sans-serif;font-size:0.62rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--cream);cursor:pointer;transition:background 0.25s,color 0.25s}
+.form-submit:hover{background:var(--gold);color:var(--navy)}
+footer{background:var(--navy);padding:3.5rem 3rem}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
+.footer-brand .l1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1rem;color:var(--cream);letter-spacing:0.14em;display:block}
+.footer-brand .l2{font-family:'Montserrat',sans-serif;font-weight:200;font-size:0.33rem;letter-spacing:0.45em;color:var(--gold);text-transform:uppercase;margin-top:3px;display:block}
+.footer-slogan{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.88rem;color:rgba(201,168,76,0.6)}
+.footer-copy{font-size:0.52rem;color:rgba(248,246,241,0.25);letter-spacing:0.08em;text-align:right;line-height:1.8}
+@media(max-width:900px){
+  nav{padding:1.2rem 1.5rem}
+  .nav-links{display:none}
+  .hero-inner{grid-template-columns:1fr;padding:8rem 1.5rem 4rem}
+  .hero-card{display:none}
+  .about-wrap,.clientele-wrap,.contact-wrap{grid-template-columns:1fr;gap:3rem}
+  .services-grid,.partners-grid{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:1fr 1fr}
+  .section{padding:4rem 1.5rem}
+  .services-inner,.partners-inner,.process-inner,.contact-inner{padding:0 1.5rem}
+  footer{padding:2.5rem 1.5rem}
+  .footer-inner{flex-direction:column;text-align:center;gap:1rem}
+  .footer-copy{text-align:center}
+  .about-photo-frame img{height:320px}
+  .mdrt-badge{right:-0.5rem}
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes scrollPulse{0%,100%{opacity:0.4}50%{opacity:1}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <svg width="34" height="34" viewBox="0 0 96 96" fill="none">
+      <circle cx="48" cy="48" r="45" stroke="#C9A84C" stroke-width="0.8" opacity="0.35"/>
+      <rect x="28" y="27" width="40" height="3.5" rx="1.2" fill="#C9A84C" opacity="0.9"/>
+      <polygon points="31,27 35,16 39,27" fill="#C9A84C" opacity="0.85"/>
+      <polygon points="44,27 48,9 52,27" fill="#C9A84C"/>
+      <polygon points="57,27 61,16 65,27" fill="#C9A84C" opacity="0.85"/>
+      <circle cx="35" cy="15.5" r="2" fill="#C9A84C" opacity="0.9"/>
+      <circle cx="48" cy="8.5" r="2.4" fill="#C9A84C"/>
+      <circle cx="61" cy="15.5" r="2" fill="#C9A84C" opacity="0.9"/>
+      <path d="M48 34 L68 80 H60 L48 50 L36 80 H28 Z" fill="#F8F6F1"/>
+      <rect x="36" y="64" width="24" height="3.2" rx="1" fill="#0D1F3C"/>
+    </svg>
+    <div class="nav-logo-text">
+      <span class="l1">Ascended</span>
+      <span class="l2">Financial Group</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#clientele">Clientele</a></li>
+    <li><a href="#partners">Partners</a></li>
+    <li><a href="#contact" class="nav-cta">Begin a Conversation</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-corner hc-tl"></div>
+  <div class="hero-corner hc-br"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Ascended Financial Group &nbsp;·&nbsp; Los Angeles, CA</p>
+      <h1 class="hero-title">Wealth Strategies<br>Built for Those Who<br>Think in <em>Generations.</em></h1>
+      <p class="hero-sub">Bespoke life insurance, private equity, and life settlement solutions for high-net-worth individuals, institutions, nonprofits, and credit unions. Over a quarter century pioneering the advanced strategies that most advisors simply don't know exist.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Begin a Conversation</a>
+        <a href="#services" class="btn-ghost">Explore Our Work</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-photo-wrap">
+        <img src="https://images.squarespace-cdn.com/content/v1/5d22e846b8fbd60001772b37/1562573418144-P144DHCX1N684UA8D40U/0.jpeg
+        " alt="Alice Kim" />
+      </div>
+      <div class="hero-card-name">Alice Kim</div>
+      <div class="hero-card-title">CEO &nbsp;·&nbsp; Wealth Manager &nbsp;·&nbsp; MDRT</div>
+      <div class="hero-divider"></div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">25+</div><div class="stat-label">Years Experience</div></div>
+        <div class="stat"><div class="stat-num">$250M+</div><div class="stat-label">Deals Brokered</div></div>
+        <div class="stat"><div class="stat-num">MDRT</div><div class="stat-label">Recognized Speaker</div></div>
+        <div class="stat"><div class="stat-num">Global</div><div class="stat-label">Conference Speaker</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint"><span>Discover</span><div class="scroll-line"></div></div>
+</section>
+
+<div class="slogan-band"><p>Elevating Wealth. &nbsp;&nbsp; Honoring Legacy.</p></div>
+
+<section id="about">
+  <div class="section">
+    <p class="section-eyebrow">01 — Our Founder</p>
+    <h2 class="section-title">A Trusted Authority on<br><em>Advanced Wealth Strategy</em></h2>
+    <div class="gold-rule"></div>
+    <div class="about-wrap">
+      <div class="about-photo-col">
+        <div class="about-photo-frame">
+          <img src="https://images.squarespace-cdn.com/content/v1/5d22e846b8fbd60001772b37/1562573418144-P144DHCX1N684UA8D40U/0.jpeg" alt="Alice Kim, CEO Ascended Financial Group" />
+        </div>
+        <div class="mdrt-badge">
+          <div class="mdrt-dot">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2L15 9H22L16.5 13.5L18.5 21L12 16.5L5.5 21L7.5 13.5L2 9H9Z" fill="#C9A84C"/></svg>
+          </div>
+          <div class="mdrt-text">
+            <div class="t1">MDRT Member</div>
+            <div class="t2">Million Dollar Round Table<br>Recognized Speaker</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-body">
+        <p><strong>Alice Kim</strong> is the CEO and Founder of Ascended Financial Group, LLC — a boutique wealth strategy firm headquartered in Los Angeles, specializing in sophisticated solutions for ultra-high-net-worth individuals, institutions, nonprofits, family offices, and credit unions.</p>
+        <p>Since 1998, Alice has led the field with innovative approaches that most financial advisors simply don't offer. Her expertise spans premium financing, captive insurance, executive benefits, life settlements, and private equity — strategies engineered to protect, grow, and transfer wealth across generations.</p>
+        <p>A graduate of the University of the Pacific, Alice began her career advising government employees at the nation's largest school district before building one of California's most respected independent wealth practices. Her firm has brokered deals exceeding <strong>$250 million</strong>, and her clients include Hollywood celebrities, professional athletes, and some of the largest CFOs in the country.</p>
+        <p>Recognized by the <strong>Million Dollar Round Table™</strong> as an authority on tax-efficient wealth management, Alice has been invited to speak at conferences around the globe. She also provides pro bono financial guidance for domestic violence survivors and is a lifelong champion of financial literacy.</p>
+        <div class="about-highlights">
+          <div class="highlight-item"><div class="hi-num">1998</div><div class="hi-label">In Practice Since</div></div>
+          <div class="highlight-item"><div class="hi-num">$250M+</div><div class="hi-label">Deals Brokered</div></div>
+          <div class="highlight-item"><div class="hi-num">Global</div><div class="hi-label">Conference Speaker</div></div>
+          <div class="highlight-item"><div class="hi-num">MDRT</div><div class="hi-label">Recognized Authority</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="services-bg">
+  <div class="services-inner">
+    <div class="section" style="padding-left:0;padding-right:0">
+      <p class="section-eyebrow">02 — What We Do</p>
+      <h2 class="section-title">Strategies Engineered for<br><em>Exceptional Complexity</em></h2>
+      <div class="gold-rule"></div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="svc-icon">
+            <svg viewBox="0 0 40 40" fill="none">
+              <path d="M20 4 L34 10 V20 C34 28 27 34 20 36 C13 34 6 28 6 20 V10 Z" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+              <path d="M14 20 L18 24 L26 16" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="svc-title">Advanced Life Insurance</h3>
+          <p class="svc-desc">Institutional-grade life insurance solutions engineered to protect, grow, and efficiently transfer significant wealth — far beyond what traditional advisors offer.</p>
+          <ul class="svc-list">
+            <li>Premium Financing</li>
+            <li>Indexed Universal Life (IUL)</li>
+            <li>Captive Insurance</li>
+            <li>Executive Benefits &amp; Key Man</li>
+            <li>Estate Planning Structures</li>
+            <li>Whole Life &amp; Survivorship</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="svc-icon">
+            <svg viewBox="0 0 40 40" fill="none">
+              <rect x="4" y="24" width="6" height="12" rx="1" fill="#C9A84C" opacity="0.5"/>
+              <rect x="13" y="18" width="6" height="18" rx="1" fill="#C9A84C" opacity="0.7"/>
+              <rect x="22" y="12" width="6" height="24" rx="1" fill="#C9A84C" opacity="0.85"/>
+              <rect x="31" y="6" width="6" height="30" rx="1" fill="#C9A84C"/>
+              <path d="M6 22 L16 15 L25 10 L34 4" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="svc-title">Private Equity &amp; Life Settlements</h3>
+          <p class="svc-desc">Access to institutional-quality alternative investments, including life settlement funds — a non-correlated asset class delivering compelling risk-adjusted returns.</p>
+          <ul class="svc-list">
+            <li>Life Settlement Investments</li>
+            <li>Private Equity Fund Access</li>
+            <li>Alternative Asset Strategies</li>
+            <li>Non-Correlated Returns</li>
+            <li>Portfolio Diversification</li>
+            <li>Accredited &amp; Qualified Investors</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="svc-icon">
+            <svg viewBox="0 0 40 40" fill="none">
+              <rect x="4" y="18" width="32" height="18" rx="1" stroke="#C9A84C" stroke-width="1.2" fill="none"/>
+              <path d="M4 18 L20 6 L36 18" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/>
+              <rect x="14" y="24" width="5" height="12" rx="1" stroke="#C9A84C" stroke-width="1" fill="none"/>
+              <rect x="22" y="24" width="5" height="8" rx="1" stroke="#C9A84C" stroke-width="1" fill="none"/>
+            </svg>
+          </div>
+          <h3 class="svc-title">Institutional &amp; Credit Union Solutions</h3>
+          <p class="svc-desc">Specialized capital strategies for institutions that think in systems. Tailored for credit unions, nonprofits, foundations, and family offices.</p>
+          <ul class="svc-list">
+            <li>Credit Union Strategies</li>
+            <li>BOLI / COLI Programs</li>
+            <li>Nonprofit Endowment Planning</li>
+            <li>Foundation Wealth Management</li>
+            <li>Institutional Life Settlements</li>
+            <li>Long-Term Obligation Planning</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="clientele">
+  <div class="section">
+    <p class="section-eyebrow">03 — Who We Serve</p>
+    <h2 class="section-title">Built for Those Whose<br>Needs Are <em>Beyond Ordinary</em></h2>
+    <div class="gold-rule"></div>
+    <div class="clientele-wrap">
+      <div>
+        <div class="client-grid">
+          <div class="client-card">
+            <div class="cc-icon"><svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="10" r="5" stroke="#C9A84C" stroke-width="1.2"/><path d="M6 26 C6 20 10 17 16 17 C22 17 26 20 26 26" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+            <div class="cc-label">Ultra High<br>Net Worth</div>
+          </div>
+          <div class="client-card">
+            <div class="cc-icon"><svg viewBox="0 0 32 32" fill="none"><rect x="3" y="10" width="26" height="16" rx="2" stroke="#C9A84C" stroke-width="1.2"/><path d="M3 15 H29" stroke="#C9A84C" stroke-width="1"/><circle cx="16" cy="21" r="2" stroke="#C9A84C" stroke-width="1"/></svg></div>
+            <div class="cc-label">Credit<br>Unions</div>
+          </div>
+          <div class="client-card">
+            <div class="cc-icon"><svg viewBox="0 0 32 32" fill="none"><path d="M16 4 L28 9 V17 C28 23 23 27 16 29 C9 27 4 23 4 17 V9 Z" stroke="#C9A84C" stroke-width="1.2" fill="none"/></svg></div>
+            <div class="cc-label">Nonprofits &amp;<br>Foundations</div>
+          </div>
+          <div class="client-card">
+            <div class="cc-icon"><svg viewBox="0 0 32 32" fill="none"><rect x="4" y="12" width="24" height="16" rx="1.5" stroke="#C9A84C" stroke-width="1.2"/><path d="M4 16 L16 8 L28 16" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+            <div class="cc-label">Institutions &amp;<br>Endowments</div>
+          </div>
+          <div class="client-card">
+            <div class="cc-icon"><svg viewBox="0 0 32 32" fill="none"><path d="M8 28 V16 M16 28 V10 M24 28 V18" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/><path d="M5 16 L16 8 L27 13" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+            <div class="cc-label">Family<br>Offices</div>
+          </div>
+          <div class="client-card">
+            <div class="cc-icon"><svg viewBox="0 0 32 32" fill="none"><path d="M6 10 H26 V24 H6 Z" stroke="#C9A84C" stroke-width="1.2" fill="none"/><path d="M11 10 V7 M21 10 V7" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/><path d="M10 16 H22 M10 20 H18" stroke="#C9A84C" stroke-width="1" stroke-linecap="round"/></svg></div>
+            <div class="cc-label">Corporate<br>Executives &amp; CEOs</div>
+          </div>
+        </div>
+        <div class="client-note"><strong>Also proudly serving:</strong> Hollywood celebrities, professional athletes, accredited and qualified investors, government entities, and domestic violence survivors through our pro bono financial literacy program.</div>
+      </div>
+      <div class="clientele-quote">
+        <p class="cq-text">"Alice specializes in Ultra High Net Worth clients whose typical financial needs are not understood by ordinary financial advisors. Her decades of experience have made her the authority on advanced wealth strategies — and her revolutionary techniques continue to redefine what's possible."</p>
+        <div class="cq-rule"></div>
+        <div class="cq-attr">Million Dollar Round Table™ &nbsp;·&nbsp; Speaking Recognition</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="partners" class="partners-bg">
+  <div class="partners-inner">
+    <div class="section" style="padding-left:0;padding-right:0">
+      <p class="section-eyebrow">04 — Proprietary Access</p>
+      <h2 class="section-title">Strategies Reserved for<br><em>The Few, Not the Many</em></h2>
+      <div class="gold-rule"></div>
+      <div class="partners-grid">
+        <div class="partner-card" style="border-top:3px solid var(--gold);">
+          <div class="partner-tag">Proprietary Platform</div>
+          <div class="partner-name">Exclusive Capital Strategies</div>
+          <div class="partner-tagline">Reserved for qualified institutions and ultra-high-net-worth clients.</div>
+          <p class="partner-desc">Ascended Financial Group provides access to proprietary capital strategies unavailable through traditional financial channels. These institutional-grade frameworks integrate protection, liquidity, and legacy as a single coordinated system — addressing inefficiencies that conventional advisors are simply not equipped to solve.</p>
+          <a href="#contact" class="partner-link">Inquire About Access →</a>
+        </div>
+        <div class="partner-card" style="border-top:3px solid var(--gold);">
+          <div class="partner-tag">Proprietary Platform</div>
+          <div class="partner-name">Institutional Alternative Investments</div>
+          <div class="partner-tagline">Non-correlated returns typically reserved for the world's largest family offices.</div>
+          <p class="partner-desc">Through our curated network of proprietary institutional platforms, our clients gain exclusive access to alternative investment strategies — including life settlement funds and private equity vehicles — delivering compelling risk-adjusted returns unavailable through traditional wealth management.</p>
+          <a href="#contact" class="partner-link">Inquire About Access →</a>
+        </div>
+      </div>
+      <div style="margin-top:2.5rem;padding:2.5rem 3rem;background:var(--navy);border-radius:6px;text-align:center;position:relative;overflow:hidden;">
+        <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(201,168,76,0.08) 0%,transparent 70%);pointer-events:none;"></div>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.3rem;font-weight:300;color:var(--cream);line-height:1.75;position:relative;z-index:1;max-width:680px;margin:0 auto;">"Our clients benefit from exclusive access to proprietary institutional strategies typically reserved for the world's largest family offices and financial institutions — accessible only through Ascended Financial Group."</p>
+        <div style="width:40px;height:1px;background:var(--gold);margin:1.5rem auto 0;opacity:0.55;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process-bg">
+  <div class="process-inner">
+    <div class="section" style="padding-left:0;padding-right:0">
+      <p class="section-eyebrow">05 — Our Approach</p>
+      <h2 class="section-title">How We <em>Work Together</em></h2>
+      <div class="gold-rule"></div>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-num">I</div>
+          <div class="step-title">Discovery</div>
+          <p class="step-desc">We begin with a deep conversation — understanding your full financial picture, goals, obligations, and vision for legacy. No forms. No pressure. Just perspective.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">II</div>
+          <div class="step-title">Strategy Design</div>
+          <p class="step-desc">We engineer a coordinated strategy — not a product recommendation. Every structure is designed to optimize protection, liquidity, and growth as one unified system.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">III</div>
+          <div class="step-title">Implementation</div>
+          <p class="step-desc">We execute with precision, leveraging our institutional partner platforms and decades of carrier relationships to deliver exceptional structures and terms.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">IV</div>
+          <div class="step-title">Ongoing Partnership</div>
+          <p class="step-desc">We remain a trusted long-term advisor — monitoring, adjusting, and evolving your strategy as your life, business, and legacy continue to grow.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact-bg">
+  <div class="contact-inner">
+    <div class="section" style="padding-left:0;padding-right:0">
+      <p class="section-eyebrow">06 — Begin a Conversation</p>
+      <h2 class="section-title">Your Legacy Deserves<br>a <em>Dedicated Conversation</em></h2>
+      <div class="gold-rule"></div>
+      <div class="contact-wrap">
+        <div class="contact-info">
+          <p>We work with a select group of clients whose financial complexity requires more than conventional planning. If you're ready to explore what's possible at the intersection of protection, growth, and legacy — we'd be honored to connect.</p>
+          <ul class="contact-details">
+            <li><span class="cd-label">Location</span><span>Los Angeles, CA<br><em style="font-style:italic;color:var(--text-light);font-size:0.68rem;">By Appointment Only &nbsp;·&nbsp; Serving Clients Nationwide</em></span></li>
+            <li><span class="cd-label">Phone</span><a href="tel:3106414888">(310) 641-4888</a></li>
+            <li><span class="cd-label">Email</span><a href="mailto:info@ascendedfinancial.com">info@ascendedfinancial.com</a></li>
+            <li><span class="cd-label">Hours</span><span>Monday – Friday &nbsp; 9am – 5pm PST</span></li>
+          </ul>
+          <div style="display:flex;align-items:center;gap:0.8rem;padding:1.2rem;border:1px solid var(--warm-gray);border-radius:4px;background:white;max-width:280px;">
+            <div style="width:40px;height:40px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2L15 9H22L16.5 13.5L18.5 21L12 16.5L5.5 21L7.5 13.5L2 9H9Z" fill="#C9A84C"/></svg>
+            </div>
+            <div>
+              <div style="font-size:0.56rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--navy);">MDRT Member</div>
+              <div style="font-size:0.5rem;color:var(--text-light);margin-top:2px;line-height:1.5;">Million Dollar Round Table<br>Premier Association of Financial Professionals</div>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group"><label>First Name</label><input type="text" placeholder="First name"/></div>
+            <div class="form-group"><label>Last Name</label><input type="text" placeholder="Last name"/></div>
+          </div>
+          <div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com"/></div>
+          <div class="form-group"><label>Phone</label><input type="tel" placeholder="(000) 000-0000"/></div>
+          <div class="form-group">
+            <label>I Am A</label>
+            <select>
+              <option value="">Select your profile…</option>
+              <option>High-Net-Worth Individual</option>
+              <option>Corporate Executive / CEO</option>
+              <option>Credit Union</option>
+              <option>Nonprofit / Foundation</option>
+              <option>Family Office</option>
+              <option>Institution / Endowment</option>
+              <option>Accredited / Qualified Investor</option>
+              <option>Hollywood / Entertainment</option>
+              <option>Professional Athlete</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group"><label>How Can We Help?</label><textarea placeholder="Tell us about your goals, questions, or the complexity you're navigating…"></textarea></div>
+          <button type="submit" class="form-submit">Submit — Begin the Conversation</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="l1">Ascended Financial Group</span>
+      <span class="l2">LLC</span>
+    </div>
+    <div class="footer-slogan">Elevating Wealth. Honoring Legacy.</div>
+    <div class="footer-copy">© 2025 Ascended Financial Group LLC. All rights reserved.<br>Los Angeles, CA &nbsp;·&nbsp; Serving Clients Nationwide</div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = '✓ Message Received — We\'ll Be in Touch Shortly';
+    btn.style.background = '#1A6B4A';
+    btn.style.color = 'white';
+  }
+</script>
+</body>
+</html>
